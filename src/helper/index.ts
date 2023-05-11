@@ -7,15 +7,19 @@ export function slugify(text: string): string {
   3- Remove white spaces between words and replace by "-" >> "Prayer-Timer"
   4- Convert Text To Lowercase >> "prayer-timer"
   */
-  // 1) Trim white spaces from first and last & 2) Remove or collapse white spaces between words
-  // https://stackoverflow.com/questions/18065807/regular-expression-for-removing-whitespaces
-  text = text.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
-  // 3) Remove white spaces between words and replace by "-"
-  text = text.replace(" ", "-");
-  // 4) Convert Text To Lowercase
+  // Trim white spaces from first and last
+  text = text.trim();
+
+  // Make the string lowercase
   text = text.toLowerCase();
 
-  // console.log(text);
+  text = text
+    // Remove invalid chars
+    .replace(/[^a-z0-9 -]/g, "")
+    // Collapse whitespace and replace by -
+    .replace(/\s+/g, "-")
+    // Collapse dashes
+    .replace(/-+/g, "-");
 
   return text;
 }

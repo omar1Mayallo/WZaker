@@ -18,7 +18,13 @@ import {
 } from "@mui/material";
 
 const drawerWidth = 240;
-const navItems = ["Quran", "Azkar", "Hadith", "Prayer Timer"];
+const navItems = [
+  "Names Of Allah",
+  "Quran",
+  "Azkar",
+  "Hadith",
+  "Prayers Timer",
+];
 
 export default function DrawerAppBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
