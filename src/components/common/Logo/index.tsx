@@ -1,14 +1,19 @@
 import {Box, Typography} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 export default function Logo() {
+  const navigate = useNavigate();
+
   return (
     <Typography
+      onClick={() => navigate("/")}
       variant="h6"
       sx={{
         my: 2,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        cursor: "pointer",
       }}
     >
       <Box

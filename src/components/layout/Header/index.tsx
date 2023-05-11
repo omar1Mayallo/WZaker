@@ -1,24 +1,27 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {useState} from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
 import Logo from "../../common/Logo";
 import {Link as RouterLink} from "react-router-dom";
 import {slugify} from "../../../helper";
+import {
+  Container,
+  AppBar,
+  Box,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Button,
+} from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Quran", "Azkar", "Hadith", "Prayer Timer"];
 
 export default function DrawerAppBar() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -43,38 +46,46 @@ export default function DrawerAppBar() {
   );
 
   return (
-    <Box sx={{display: "flex"}}>
-      <AppBar component="nav" position="static" sx={{background: "#090e21"}}>
-        <Toolbar
-          sx={{
-            display: {sm: "flex"},
-            flexDirection: {xs: "row-reverse", sm: "row"},
-            justifyContent: "space-between",
-          }}
-        >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{display: {sm: "none"}}}
+    <Box component={"header"} sx={{display: "flex"}}>
+      <AppBar
+        component="nav"
+        position="static"
+        sx={{
+          background: "#090e21",
+        }}
+      >
+        <Container maxWidth="xl">
+          <Toolbar
+            sx={{
+              display: {sm: "flex"},
+              flexDirection: {xs: "row-reverse", sm: "row"},
+              justifyContent: "space-between",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Logo />
-          <Box sx={{display: {xs: "none", sm: "block"}}}>
-            {navItems.map((item) => (
-              <Button
-                key={item}
-                sx={{color: "#fff"}}
-                component={RouterLink}
-                to={`/${slugify(item)}`}
-              >
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{display: {sm: "none"}}}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Logo />
+            <Box sx={{display: {xs: "none", sm: "block"}}}>
+              {navItems.map((item) => (
+                <Button
+                  key={item}
+                  sx={{color: "#fff"}}
+                  component={RouterLink}
+                  to={`/${slugify(item)}`}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
 
       {/* APP_Sidebar */}
@@ -88,7 +99,10 @@ export default function DrawerAppBar() {
           }}
           sx={{
             display: {xs: "block", sm: "none"},
-            "& .MuiDrawer-paper": {boxSizing: "border-box", width: drawerWidth},
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
