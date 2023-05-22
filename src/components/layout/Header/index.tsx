@@ -64,7 +64,7 @@ export default function DrawerAppBar() {
           <Toolbar
             sx={{
               display: {sm: "flex"},
-              flexDirection: {xs: "row-reverse", sm: "row"},
+              flexDirection: {xs: "row-reverse", md: "row"},
               justifyContent: "space-between",
             }}
           >
@@ -73,12 +73,12 @@ export default function DrawerAppBar() {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{display: {sm: "none"}}}
+              sx={{display: {md: "none"}}}
             >
               <MenuIcon />
             </IconButton>
             <Logo />
-            <Box sx={{display: {xs: "none", sm: "block"}}}>
+            <Box sx={{display: {xs: "none", md: "block"}}}>
               {navItems.map((item) => (
                 <Button
                   key={item}
@@ -104,7 +104,7 @@ export default function DrawerAppBar() {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: {xs: "block", sm: "none"},
+            display: {xs: "block", md: "none"},
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

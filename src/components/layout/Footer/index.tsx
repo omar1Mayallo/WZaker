@@ -63,17 +63,20 @@ export const Footer = () => {
                       key={idx}
                       component={RouterLink}
                       to={`/${slugify(item)}`}
+                      sx={{
+                        maxWidth: "fit-content",
+                        py: 0.5,
+                        mx: {xs: "auto", lg: "0"},
+                      }}
                     >
                       <Box
                         component={"span"}
                         sx={{
-                          cursor: "pointer",
                           color: "#f1f1f1",
                           transition: "0.3s",
-                          mx: {lg: "0", xs: "auto"},
                           "&:hover": {
                             color: "#868686",
-                            ml: 0.5,
+                            pl: 0.7,
                           },
                         }}
                       >
