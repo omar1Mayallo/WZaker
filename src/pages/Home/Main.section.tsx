@@ -10,7 +10,7 @@ const MainSection = () => {
         backgroundImage: `url(${mainBanner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "80vh",
+        height: "90vh",
       }}
     >
       <Container maxWidth="lg">
@@ -41,12 +41,12 @@ const MainSection = () => {
             >
               {["Fajr", "Sunrise", "Duhr", "Asr", "Maghrib", "Isha"].map(
                 (item, idx, arr) => (
-                  <>
+                  <div key={idx}>
                     <PrayerListItem prayer={item} time="4.18 AM" />
                     {idx !== arr.length - 1 && (
                       <Divider sx={{borderColor: "#ffffff50"}} />
                     )}
-                  </>
+                  </div>
                 )
               )}
             </List>
