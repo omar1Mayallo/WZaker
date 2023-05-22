@@ -1,3 +1,4 @@
+import FivePillarsSection from "./FivePillars.section";
 import MainSection from "./Main.section";
 import WhoIsMuhammadSection from "./Muhamed.section";
 import TheQuranSection from "./Quran.section";
@@ -8,6 +9,7 @@ export const Home: React.FC<HomeProps> = ({}) => {
     <>
       <MainSection />
       <TheQuranSection />
+      <FivePillarsSection />
       <WhoIsMuhammadSection />
     </>
   );

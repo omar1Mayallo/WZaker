@@ -1,7 +1,7 @@
 import {Typography, Box} from "@mui/material";
 
-export type MainHeadProps = {head: string};
-export const MainHead: React.FC<MainHeadProps> = ({head}) => {
+export type MainHeadProps = {head: string; color?: string};
+export const MainHead: React.FC<MainHeadProps> = ({head, color}) => {
   return (
     <Typography variant="h3" sx={{textAlign: "center", mb: 5}}>
       <Box
@@ -12,6 +12,7 @@ export const MainHead: React.FC<MainHeadProps> = ({head}) => {
           fontFamily: "Poppins",
           fontSize: "calc(30px + 0.4vw)",
           fontWeight: "400",
+          color: color ? color : "black",
         }}
       >
         {head}
