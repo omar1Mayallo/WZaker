@@ -1,8 +1,7 @@
-export type HadithProps = {};
-export const Hadith: React.FC<HadithProps> = ({}) => {
+const Hadith: React.FC = () => {
   return (
     <div>
-      <h1>Hadith</h1>
+      <span>Hadith</span>
     </div>
   );
 };

@@ -1,8 +1,7 @@
-export type QuranProps = {};
-export const Quran: React.FC<QuranProps> = ({}) => {
+const Quran: React.FC = () => {
   return (
     <div>
-      <h1>Quran</h1>
+      <span>Quran</span>
     </div>
   );
 };

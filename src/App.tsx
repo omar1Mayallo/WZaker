@@ -1,12 +1,12 @@
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
+import {Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
+import Quran from "./pages/Quran";
 import Azkar from "./pages/Azkar";
 import Hadith from "./pages/Hadith";
 import NamesOfAllah from "./pages/NamesOfAllah";
 import Prayers from "./pages/Prayers";
-import {Route, Routes} from "react-router-dom";
-import Quran from "./pages/Quran";
+import Footer from "./shared/layout/Footer";
+import Header from "./shared/layout/Header";
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
           <Route path="/quran" element={<Quran />} />
           <Route path="/azkar" element={<Azkar />} />
           <Route path="/hadith" element={<Hadith />} />
-          <Route path="/Names-of-allah" element={<NamesOfAllah />} />
-          <Route path="/prayers-timer" element={<Prayers />} />
+          <Route path="/names-of-allah" element={<NamesOfAllah />} />
+          <Route path="/prayers" element={<Prayers />} />
         </Routes>
       </main>
       <Footer />

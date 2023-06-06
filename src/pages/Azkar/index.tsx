@@ -1,8 +1,7 @@
-export type AzkarProps = {};
-export const Azkar: React.FC<AzkarProps> = ({}) => {
+const Azkar: React.FC = () => {
   return (
     <div>
-      <h1>Azkar</h1>
+      <span>Azkar</span>
     </div>
   );
 };

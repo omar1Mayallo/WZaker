@@ -1,16 +1,15 @@
-import FivePillarsSection from "./FivePillars.section";
-import MainSection from "./Main.section";
-import WhoIsMuhammadSection from "./Muhamed.section";
-import TheQuranSection from "./Quran.section";
+import FivePillarsSection from "./sections/FivePillars";
+import MainSection from "./sections/Main";
+import QuranSection from "./sections/Quran";
+import WhoMuhammedSection from "./sections/WhoMuhammed";
 
-export type HomeProps = {};
-export const Home: React.FC<HomeProps> = ({}) => {
+const Home: React.FC = () => {
   return (
     <>
       <MainSection />
-      <TheQuranSection />
+      <QuranSection />
       <FivePillarsSection />
-      <WhoIsMuhammadSection />
+      <WhoMuhammedSection />
     </>
   );
 };
