@@ -1,4 +1,4 @@
-import {ListItem} from "@mui/material";
+import {ListItem, Chip} from "@mui/material";
 
 export type PrayerListItemProps = {
   prayerName: string;
@@ -22,7 +22,8 @@ const PrayerListItem: React.FC<PrayerListItemProps> = ({
         color: active ? "white" : "rgba(255,255,255,.5)",
       }}
     >
-      <span>{prayerName}</span>
+      <span style={{minWidth: "66px", textAlign: "center"}}>{prayerName}</span>
+      {active && <Chip label="Upcoming" color="primary" size="small" />}
       <span>{prayerTime.split(" ")[0].trim()}</span>
     </ListItem>
   );

@@ -1,51 +1,11 @@
-import {
-  Box,
-  Container,
-  Grid,
-  Paper,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
-import axios from "axios";
-import {useEffect, useState} from "react";
+import {Box, Container, Grid, Alert} from "@mui/material";
 import bgDen from "../../assets/bg-den.png";
-
-const LoadingComponent: React.FC = () => {
-  return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100vh"
-    >
-      <CircularProgress />
-    </Box>
-  );
-};
-interface AsamaAlHosnaI {
-  name: string;
-  transliteration: string;
-  number: 1;
-  en: {
-    meaning: string;
-  };
-}
+import Loader from "../../shared/components/Loader";
+import useNamesOfAllah from "./useNamesOfAllah";
+import NameItem from "./NameItem";
 
 const NamesOfAllah: React.FC = () => {
-  const [asamaAlHosna, setAsamaAlHosna] = useState<AsamaAlHosnaI[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const getAsamaAlHosna = async () => {
-    try {
-      const res = await axios.get(`https://api.aladhan.com/v1/asmaAlHusna`);
-      setAsamaAlHosna(res.data.data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getAsamaAlHosna();
-  }, []);
+  const {isLoading, isError, data, error} = useNamesOfAllah();
 
   return (
     <Box
@@ -56,14 +16,14 @@ const NamesOfAllah: React.FC = () => {
         backgroundRepeat: "repeat",
       }}
     >
-      <Container maxWidth="xl">
-        {loading ? (
-          <Box sx={{textAlign: "center", py: 3}}>
-            <LoadingComponent />
-          </Box>
+      <Container maxWidth="xl" sx={{py: 3}}>
+        {isLoading ? (
+          <Loader />
+        ) : isError ? (
+          <Alert severity="error">{error.message}</Alert>
         ) : (
-          <Grid container spacing={3} justifyContent="center" py={3}>
-            {asamaAlHosna.map((item) => (
+          <Grid container spacing={3} justifyContent="center">
+            {data?.map((item) => (
               <Grid
                 key={item.name}
                 item
@@ -73,33 +33,10 @@ const NamesOfAllah: React.FC = () => {
                 lg={12 / 10}
                 xl={12 / 12}
               >
-                <Paper
-                  elevation={3}
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: 100,
-                    height: 100,
-                    mx: "auto",
-                    borderRadius: "50%",
-                    background: "#161a2c",
-                    color: "white",
-                    cursor: "pointer",
-                    transition: "transform 0.3s",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
-                  }}
-                >
-                  <Typography variant="h6" align="center">
-                    {item.name}
-                  </Typography>
-                  <Typography variant="body2" align="center">
-                    {item.transliteration}
-                  </Typography>
-                </Paper>
+                <NameItem
+                  name={item.name}
+                  transliteration={item.transliteration}
+                />
               </Grid>
             ))}
           </Grid>

@@ -5,14 +5,17 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({prayer, countdown}) => {
   return (
     <Box
       sx={{
-        bgcolor: "rgba(255,255,255,.05)",
+        bgcolor: "#161a2c",
         borderRadius: "15px 15px 0 0",
         textAlign: "center",
         p: 3,
       }}
     >
       <Typography sx={{textTransform: "uppercase", fontWeight: "800"}}>
-        Upcoming {prayer}
+        Upcoming{" "}
+        <Box component={"span"} sx={{color: "#0099ff"}}>
+          {prayer}
+        </Box>
       </Typography>
 
       <Stack direction="column" justifyContent={"center"} mt={1}>
