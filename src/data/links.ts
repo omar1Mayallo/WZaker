@@ -1,7 +1,1 @@
-export const navLinks: string[] = [
-  "Names Of Allah",
-  "Quran",
-  "Azkar",
-  "Hadith",
-  "Prayers",
-];
+export const navLinks: string[] = ["Names Of Allah", "Quran", "Prayers"];

@@ -2,7 +2,7 @@ import {Box, Container, Grid, Alert} from "@mui/material";
 import bgDen from "../../assets/bg-den.png";
 import Loader from "../../shared/components/Loader";
 import useNamesOfAllah from "./useNamesOfAllah";
-import NameItem from "./NameItem";
+import CircleItem from "../../shared/components/CircleItem/CircleItem";
 
 const NamesOfAllah: React.FC = () => {
   const {isLoading, isError, data, error} = useNamesOfAllah();
@@ -33,10 +33,7 @@ const NamesOfAllah: React.FC = () => {
                 lg={12 / 10}
                 xl={12 / 12}
               >
-                <NameItem
-                  name={item.name}
-                  transliteration={item.transliteration}
-                />
+                <CircleItem nameAr={item.name} nameEn={item.transliteration} />
               </Grid>
             ))}
           </Grid>
